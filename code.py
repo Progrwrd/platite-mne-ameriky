@@ -54,22 +54,29 @@ class plr2(GameSprite):
 
 class bot(GameSprite):
     def update(self):
-        spy = 2
-        spx = 2
-        s = randint(1,4)
-        s2 = randint(1,4)
+        spy = 0.2
+        spx = 0.2
+        s = randint(1,8)
+        s2 = randint(1,8)
         press = key.get_pressed()
         
         if self.rect.y != 700 and self.rect.x != 500:
             if s == 1:
                 self.rect.y -= spy
             if s == 2:
-                self.rect.y += spy
+                self.rect.y -= spy
             if s == 3:
                 self.rect.y -= spy
             if s == 4:
                 self.rect.y += spy
-
+            if s == 5:
+                self.rect.y += spy
+            if s == 6:
+                self.rect.y += spy
+            if s == 7:
+                self.rect.y -= spy
+            if s == 8:
+                self.rect.y += spy
                 
             if s2 == 1:
                 self.rect.x -= spx
@@ -78,6 +85,14 @@ class bot(GameSprite):
             if s2 == 3:
                 self.rect.x -= spx
             if s2 == 4:
+                self.rect.x -= spx
+            if s2 == 5:
+                self.rect.x -= spx
+            if s2 == 6:
+                self.rect.x += spx
+            if s2 == 7:
+                self.rect.x += spx
+            if s2 == 8:
                 self.rect.x += spx
             if self.rect.y == 700 and self.rect.x == 500: 
                 self.rect.y = 350
@@ -148,4 +163,3 @@ while game:
         print("ну канава")
     
     display.update()
-   
