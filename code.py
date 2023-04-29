@@ -2,7 +2,6 @@ from pygame import *
 from random import *
 win = 500
 winda = display.set_mode((700,win))
-winda
 
 class GameSprite(sprite.Sprite):
     def __init__(self,player_image,player_x,player_y,player_sizex,player_sizey,player_speed):
@@ -15,9 +14,8 @@ class GameSprite(sprite.Sprite):
         
     def reset(self):
         winda.blit(self.image,(self.rect.x, self.rect.y))
-    
-        
-back = transform.scale(image.load("wow.png"),(700,500))
+
+back = transform.scale(image.load("do.png"),(700,500))
 game = True
 class chel(GameSprite):
     def __init__(self,enemy_im,enemy_x,enemy_y,enrect_x,enrect_y):
@@ -54,54 +52,36 @@ class plr2(GameSprite):
 
 class bot(GameSprite):
     def update(self):
-        spy = 0.2
-        spx = 0.2
-        s = randint(1,8)
-        s2 = randint(1,8)
-        press = key.get_pressed()
+        spy = 3
+        spx = 3
+        s = randint(1,18)
+        s2 = randint(1,18)
+        
         
         if self.rect.y != 700 and self.rect.x != 500:
             if s == 1:
                 self.rect.y -= spy
             if s == 2:
-                self.rect.y -= spy
-            if s == 3:
-                self.rect.y -= spy
-            if s == 4:
-                self.rect.y += spy
-            if s == 5:
-                self.rect.y += spy
-            if s == 6:
-                self.rect.y += spy
-            if s == 7:
-                self.rect.y -= spy
-            if s == 8:
                 self.rect.y += spy
                 
+            
+             
+
+            
             if s2 == 1:
                 self.rect.x -= spx
             if s2 == 2:
                 self.rect.x += spx
-            if s2 == 3:
-                self.rect.x -= spx
-            if s2 == 4:
-                self.rect.x -= spx
-            if s2 == 5:
-                self.rect.x -= spx
-            if s2 == 6:
-                self.rect.x += spx
-            if s2 == 7:
-                self.rect.x += spx
-            if s2 == 8:
-                self.rect.x += spx
+           
+            
             if self.rect.y == 700 and self.rect.x == 500: 
                 self.rect.y = 350
                 self.rect.x = 250
-            sprites_lists = sprite.collide_rect(player,bot)
-            if sprites_lists == True:
+            sprites_lists1 = sprite.collide_rect(player,bot)
+            if sprites_lists1 == True:
                 spx *= -1
-            sprites_lists = sprite.collide_rect(player2,bot)
-            if sprites_lists == True:
+            sprites_lists2 = sprite.collide_rect(player2,bot)
+            if sprites_lists2 == True:
                 spx *= -1
         
            
